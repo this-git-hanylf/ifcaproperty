@@ -4,6 +4,7 @@ import {Navigation} from '@react-navigation/native';
 export const nav = {
   push,
   pop,
+  navigate,
 };
 
 function push(componentId, screenName, pass) {
@@ -18,3 +19,19 @@ function push(componentId, screenName, pass) {
 function pop(componentId) {
   Navigation.pop(componentId);
 }
+
+function navigate({screenName, params}) {
+  navigation.dispatch(
+    Navigation.navigate({
+      name: screenName,
+      params: {params},
+    }),
+  );
+}
+
+// navigation.dispatch(
+//   CommonActions.navigate({
+//     name: 'Profile',
+//     params: {},
+//   }),
+// );

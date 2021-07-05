@@ -40,12 +40,12 @@ export const SignIn = ({navigation}) => {
   );
 };
 
-export const Home = ({navigation}) => {
+export const Home = ({navigation: {navigation}}) => {
   //   const {signIn} = React.useContext(AuthContext);
 
   return (
     <ScreenContainer>
-      <ScreenHome></ScreenHome>
+      <ScreenHome navigation={navigation}></ScreenHome>
     </ScreenContainer>
   );
 };
@@ -59,7 +59,7 @@ export const Profile = ({navigation}) => {
   );
 };
 
-export const CreateAccount = () => {
+export const CreateAccount = ({navigation}) => {
   //   const {signUp} = React.useContext(AuthContext);
 
   return (
@@ -70,7 +70,7 @@ export const CreateAccount = () => {
   );
 };
 
-export const Amenities = () => {
+export const Amenities = ({navigation}) => {
   return (
     <ScreenContainer>
       <ScreenAmenities></ScreenAmenities>
@@ -78,7 +78,7 @@ export const Amenities = () => {
   );
 };
 
-export const Splash = () => {
+export const Splash = ({navigation}) => {
   return (
     <ScreenContainer>
       <Text>Loading...</Text>
@@ -86,7 +86,7 @@ export const Splash = () => {
   );
 };
 
-export const EmergencyCall = () => {
+export const EmergencyCall = ({navigation}) => {
   return (
     <ScreenContainer>
       <ScreenEmergencyCall />

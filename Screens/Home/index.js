@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import {Col, Row, Grid} from 'react-native-easy-grid';
 import PromoList from '../Promo/PromoList';
-import {useNavigation} from '@react-navigation/native';
+
 import {Colors} from '../../Theme';
 import NewsList from '../News/NewsList';
 import IconFA from 'react-native-vector-icons/FontAwesome';
@@ -25,7 +25,7 @@ import FlatListSlider from '../../App/components/FlatListSlider/FlatListSlider';
 import moment from 'moment';
 import colors from '../../Theme/Colors';
 
-import {sessions} from '../../App/_helpers';
+import {sessions, nav} from '../../App/_helpers';
 
 // const navigation = useNavigation();
 
@@ -149,8 +149,10 @@ export default class Home extends React.Component {
     const data = {
       email: await sessions.getSess('@User'),
       user: await sessions.getSess('@isLogin'),
+      // user: true,
 
       name: await sessions.getSess('@Name'),
+      // navigation: this.props,
     };
     console.log('data', data);
 
@@ -168,7 +170,7 @@ export default class Home extends React.Component {
   };
 
   goToScreen = (screenName, passedProps) => {
-    Navigation.push(this.props.componentId, {
+    navigation.push(this.props.componentId, {
       component: {
         name: screenName,
         passProps: {
@@ -271,7 +273,8 @@ export default class Home extends React.Component {
       });
   };
   render() {
-    const {navigation} = this.props;
+    // const {navigation} = this.props;
+    // const {navigate} = route.params;
     const {user} = this.state;
     return (
       <ImageBackground
@@ -617,7 +620,10 @@ export default class Home extends React.Component {
                         'Amenities',
                         this.state.totalInvoiceDue,
                       )
-                    : alert('please login')
+                    : // navigation.navigate('Amenities', {params: 'halo'})
+                      // this.props.navigation.navigate('Amenities')
+                      // this.props.navigation.goBack()
+                      alert('please login')
                 }
                 style={{
                   flexDirection: 'row',
