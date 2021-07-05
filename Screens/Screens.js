@@ -5,6 +5,7 @@ import {AuthContext} from './_context';
 import ScreenHome from './Home/index';
 import ScreenProfile from './Profile/index';
 import ScreenAmenities from './Amenities/index';
+import ScreenEmergencyCall from './EmergencyCall/index';
 
 const styles = StyleSheet.create({
   container: {
@@ -73,6 +74,22 @@ export const Amenities = () => {
   return (
     <ScreenContainer>
       <ScreenAmenities></ScreenAmenities>
+    </ScreenContainer>
+  );
+};
+
+export const Splash = () => {
+  return (
+    <ScreenContainer>
+      <Text>Loading...</Text>
+    </ScreenContainer>
+  );
+};
+
+export const EmergencyCall = () => {
+  return (
+    <ScreenContainer>
+      <ScreenEmergencyCall />
     </ScreenContainer>
   );
 };
